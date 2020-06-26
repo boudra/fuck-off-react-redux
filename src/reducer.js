@@ -1,7 +1,8 @@
 const initialState = {
   title: "What's your name?",
   subtitle: "",
-  name: ""
+  name: "",
+  loading: false
 };
 
 export default function (state = initialState, action) {
@@ -14,6 +15,9 @@ export default function (state = initialState, action) {
 
     case "SET_SUBTITLE":
       return { ...state, subtitle: action.payload };
+
+    case "SET_LOADING":
+      return { ...state, loading: action.payload };
 
     default:
       return state;

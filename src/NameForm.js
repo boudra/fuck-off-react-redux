@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import { inputName, submitName } from "./actions";
 
-function NameForm({ name, inputName, submitName }) {
+function NameForm({ name, loading, inputName, submitName }) {
   function onSubmit(e) {
     e.preventDefault();
     submitName(name);
@@ -19,13 +19,13 @@ function NameForm({ name, inputName, submitName }) {
         onChange={(e) => inputName(e.target.value)}
         value={name}
       />
-      <button>Submit</button>
+      <button disabled={loading}>Submit</button>
     </form>
   );
 }
 
 function mapStateToProps(state) {
-  return { name: state.name };
+  return { name: state.name, loading: state.loading };
 }
 
 export default connect(mapStateToProps, { inputName, submitName })(NameForm);
