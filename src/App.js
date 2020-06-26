@@ -2,6 +2,9 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import Redux from "redux";
+import {Provider} from "react-redux";
+
 function App() {
   return (
     <div className="App">
